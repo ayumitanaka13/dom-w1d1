@@ -6,14 +6,15 @@
   Highlight all of the words over 8 characters long in the paragraph text (with a yellow background for example)
 */
 
-const words = document.querySelector("p");
-words.innerHTML = words.innerText.split(" ").map((word) => {
-  if (word.length >= 8) {
+const p = document.querySelector("p");
+p.innerHTML = p.innerText.split(" ").map(word => {
+  if (word.length > 8) {
     return `<span style="background-color:yellow">${word}</span>`;
   } else {
     return word;
   }
 }).join(" ");
+
 
 /*
   Exercise 02
@@ -24,8 +25,8 @@ words.innerHTML = words.innerText.split(" ").map((word) => {
 
 const a = document.createElement("a");
 document.querySelector("body").append(a);
-a.href = "http://officeipsum.com/";
 a.innerText = "New Source";
+a.href = "http://officeipsum.com/";
 
 /*
   Exercise 03
@@ -34,7 +35,8 @@ a.innerText = "New Source";
   A sentence can be assumed to be a string of text terminated with a period (.)
 */
 
-words.innerHTML = words.innerHTML.split(".").join(".</p><p>") + "</p>";
+p.innerHTML = p.innerHTML.split(".").join(".</p><p>") + "</p>";
+
 
 /* 
   Exercise 04
@@ -43,10 +45,10 @@ words.innerHTML = words.innerHTML.split(".").join(".</p><p>") + "</p>";
   You can assume that all words are separated by one singular whitespace.
 */
 
-const wordCount = words.innerText.split(" ").length;
-const wordCountDiv = document.createElement("div");
-wordCountDiv.innerHTML = wordCount;
-document.body.insertBefore(wordCountDiv, words);
+const wordCount =  p.innerHTML.split(" ").length;
+const div = document.createElement("div");
+div.innerHTML = wordCount;
+document.body.insertBefore(div, p);
 
 /*
   Exercise 05
@@ -54,5 +56,5 @@ document.body.insertBefore(wordCountDiv, words);
   Replace all question marks (?) with thinking faces (🤔) and exclamation marks (!) with astonished faces (😲) 
 */
 
-words.innerHTML = words.innerText.replaceAll(/\?/g, "🤔");
-words.innerHTML = words.innerText.replaceAll(/\!/g, "😲");
+p.innerHTML = p.innerText.replaceAll(/\?/g, "🤔");
+p.innerHTML = p.innerText.replaceAll(/\!/g, "😲");
